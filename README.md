@@ -27,11 +27,11 @@ chained sequence. We show this failure mode is:
   estimators are comparable on typical pairs, and the gap is concentrated in one
   bad window.
 
-| Estimator            | ATE (realistic, %) | $e_R$ median (°) | Latency (ms) | Peak VRAM (MB) |
-| --------------------- | ------------------- | ------------------ | ------------- | --------------- |
-| SIFT+Essential        | 0.34%                | 0.177               | 279.6         | 0                |
-| **SIFT+LK**           | **0.26%**            | **0.139**           | **108.6**     | 0                |
-| SuperPoint+LightGlue  | 6.08%                | 0.275               | 198.8         | 532.6            |
+| Estimator            | ATE (realistic, %) | $e_R$ median (°) | Latency (ms) | Peak VRAM (MB) | Median CPU RAM (MB) |
+| --------------------- | ------------------- | ------------------ | ------------- | --------------- | --------------- |
+| SIFT+Essential        | 0.34%                | 0.177               | 279.6         | 0                | 27.6             |
+| **SIFT+LK**           | **0.26%**            | **0.139**           | **108.6**     | 0                | 22.8             |
+| SuperPoint+LightGlue  | 6.08%                | 0.275               | 198.8         | 532.6            | 0                |
 
 (gap=5, 56 test pairs, tuned hyperparameters — see the write-up for the full
 protocol, grids searched, and caveats.)
