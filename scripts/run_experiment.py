@@ -48,7 +48,7 @@ def load_dataset(cfg: ExperimentConfig) -> AltoDataset:
 def run_val_search(dataset: AltoDataset, cfg: ExperimentConfig) -> tuple[dict, dict]:
     best_params, val_search_logs = {}, {}
     for name, spec in GRIDS.items():
-        log.info("val hyperparameter search: %s", name)
+        log.info("Hyperparameter Search: %s", name)
         scored = grid_search(spec["cls"], spec["grid"], cfg.val_gap, cfg.val_step, dataset, cfg.val_split, cfg.K)
         val_search_logs[name] = pd.DataFrame(scored)
         best_params[name] = scored[0]["params"]
@@ -67,7 +67,7 @@ def build_estimators(best_params: dict, device: str) -> dict:
 def run_test_evaluation(estimators: dict, dataset: AltoDataset, cfg: ExperimentConfig):
     pose_evaluators, results_by_name, ate_by_name, windowed_ate_by_name = {}, {}, {}, {}
     for name, estimator in estimators.items():
-        log.info("evaluating: %s", name)
+        log.info("Evaluating: %s", name)
         pose_evaluator = PoseEvaluator(estimator, dataset, cfg.K)
         results = pose_evaluator.run_as_sequence(cfg.test_split, gap=cfg.test_gap, step=cfg.test_step)
         pose_evaluators[name] = pose_evaluator
@@ -89,7 +89,7 @@ def profile_estimators(estimators: dict, dataset: AltoDataset, cfg: ExperimentCo
 
     profile_summary = {}
     for name, estimator in estimators.items():
-        log.info("profiling: %s", name)
+        log.info("Profiling: %s", name)
         # NB: runs=%d — небольшая выборка, ожидается несколько % джиттера
         # между запусками на CPU. Цифры в README/research_note — из
         # конкретного прогона, не lab-grade бенчмарк.

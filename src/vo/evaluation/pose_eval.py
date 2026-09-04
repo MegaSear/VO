@@ -23,9 +23,16 @@ class PoseEvaluator():
             "texture_mean": (compute_texture_score(img1) + compute_texture_score(img2)) / 2.0,
         }
     
-    def run_as_sequence(self, split_name, gap, step):
+    def run_as_sequence(self, split_name, gap, step, show_progress=True):
         pairs = self.dataset.get_pair_indices_on_split(split_name, gap, step)
-        rows = [self._process_pair(i1, i2) for i1, i2 in tqdm(pairs, desc=f"Processing [{split_name}]")]
+        rows = [
+            self._process_pair(i1, i2) 
+            for i1, i2 in tqdm(
+                pairs, 
+                desc=f"Processing [{split_name}]", 
+                disable=not show_progress
+            )
+        ]
         df = pd.DataFrame(rows)
         return df
     
