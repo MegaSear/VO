@@ -57,6 +57,7 @@ def run_val_search(dataset: AltoDataset, cfg: ExperimentConfig) -> tuple[dict, d
 
 
 def build_estimators(best_params: dict, device: str) -> dict:
+    print(f"superpoint_lg will be on {device}") 
     return {
         "sift_essential": SiftEssentialEstimator(**best_params["sift_essential"]),
         "sift_lk": SiftLkEstimator(**best_params["sift_lk"]),
@@ -168,7 +169,7 @@ def main() -> None:
         best_params, _val_search_logs = run_val_search(dataset, cfg)
 
     estimators = build_estimators(best_params, cfg.device)
-
+    
     _pose_evaluators, results_by_name, ate_by_name, windowed_ate_by_name = run_test_evaluation(
         estimators, dataset, cfg
     )
