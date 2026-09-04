@@ -6,7 +6,8 @@ from vo.estimators.base import BaseEstimator
 
 
 class SuperPointLightGlueEstimator(BaseEstimator):
-    def __init__(self, max_num_keypoints: int = 2000, ransac_threshold: float = 1.0, device: str = "cpu"):
+    def __init__(self, max_num_keypoints: int = 2000, ransac_threshold: float = 1.0, 
+                device: str = "cuda" if torch.cuda.is_available() else "cpu"):
         self.device = device
         self.ransac_threshold = ransac_threshold
         self.extractor = SuperPoint(max_num_keypoints=max_num_keypoints).eval().to(device)
