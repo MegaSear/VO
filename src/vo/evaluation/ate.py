@@ -82,8 +82,11 @@ def run_ate_analysis(evaluator, split_name, gap=5, estimator_name=None, plot=Tru
         plt.suptitle(f"{split_name} split, gap={gap}")
         plt.tight_layout()
 
-        os.makedirs("figures/generated", exist_ok=True)
-        fig.savefig(f"figures/generated/fig_ate_{estimator_name}.png", dpi=150, bbox_inches="tight")
+        gen_folder = "figures/generated"
+        os.makedirs(gen_folder, exist_ok=True)
+        img_path = f"{gen_folder}/fig_ate_{estimator_name}.png"
+        fig.savefig(img_path, dpi=150, bbox_inches="tight")
+        print(f"Figure saved to {img_path}")
         plt.show()
         plt.close(fig)
     return summary

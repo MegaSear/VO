@@ -49,9 +49,7 @@ class ExperimentConfig:
         "F_inlier_ratio", "H_inlier_ratio", "matches", "texture_mean",
     )
  
-    @property
-    def device(self) -> str:
-        return "cuda" if torch.cuda.is_available() else "cpu"
+    device: str = "cuda" if torch.cuda.is_available() else "cpu"
  
  
 GRIDS = {
