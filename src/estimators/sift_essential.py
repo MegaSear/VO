@@ -28,7 +28,7 @@ class SiftEssentialEstimator(BaseEstimator):
         info.update({
             "keypoints_1":len(kp1),
             "keypoints_2":len(kp2),
-            "matches": len(matches),
+            "matches": len(good),
             # NB: ratio-test survival rate (frac. of frame-1 keypoints whose best SIFT
             # match passed Lowe's ratio test) - NOT classical detector repeatability.
             # See the notes cell at the top of the notebook.

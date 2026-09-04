@@ -11,11 +11,11 @@ def rotation_error_deg(R_est, R_gt):
 
 # Ошибка направления трансляции
 def translation_direction_error_deg(t_est, t_gt):
-    t_est = np.asarray(t_est).reshape(-1)
-    t_gt = np.asarray(t_gt).reshape(-1)
-    t_est /= np.linalg.norm(t_est)
-    t_gt /= np.linalg.norm(t_gt)
-    cos_angle = np.clip(np.dot(t_est, t_gt), -1.0, 1.0)
+    t_est = np.asarray(t_est, dtype=float).reshape(-1)
+    t_gt = np.asarray(t_gt, dtype=float).reshape(-1)
+    t_est_n = t_est / np.linalg.norm(t_est)
+    t_gt_n = t_gt / np.linalg.norm(t_gt)
+    cos_angle = np.clip(np.dot(t_est_n, t_gt_n), -1.0, 1.0)
     return np.degrees(np.arccos(cos_angle))
 
 # Lindenberger, Sarlin, Pollefeys.** *LightGlue: Local Feature Matching at Light Speed*, ICCV 2023.
