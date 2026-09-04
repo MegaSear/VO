@@ -3,7 +3,7 @@ from typing import Tuple, Dict, Any, List, Optional
 
 import cv2
 import numpy as np
-from geometry.epipolar import (
+from vo.geometry.epipolar import (
     homography_symmetric_transfer_score,
     fundamental_symmetric_transfer_score,
     compute_parallax

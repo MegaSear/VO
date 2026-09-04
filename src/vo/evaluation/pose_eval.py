@@ -1,8 +1,8 @@
 import numpy as np
 from tqdm import tqdm
 import pandas as pd
-from geometry.metrics import rotation_error_deg, translation_direction_error_deg
-from geometry.texture import compute_texture_score
+from vo.geometry.metrics import rotation_error_deg, translation_direction_error_deg
+from vo.geometry.texture import compute_texture_score
 
 class PoseEvaluator():
     def __init__(self, estimator, dataset, K):

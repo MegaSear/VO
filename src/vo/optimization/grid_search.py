@@ -1,5 +1,5 @@
 import itertools
-from evaluation.pose_eval import PoseEvaluator
+from vo.evaluation.pose_eval import PoseEvaluator
 def score_on(estimator_cls, params, gap, step, dataset, split_name, K):
     """Меньше — лучше. Селекционный скор по качеству позы на val."""
     estimator = estimator_cls(**params)

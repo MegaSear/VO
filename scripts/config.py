@@ -3,9 +3,9 @@ from dataclasses import dataclass, field
 import numpy as np
 import torch
 import os
-from src.estimators.sift_essential import SiftEssentialEstimator
-from src.estimators.sift_lk import SiftLkEstimator
-from src.estimators.superpoint_lightglue import SuperPointLightGlueEstimator
+from vo.estimators.sift_essential import SiftEssentialEstimator
+from vo.estimators.sift_lk import SiftLkEstimator
+from vo.estimators.superpoint_lightglue import SuperPointLightGlueEstimator
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -40,7 +40,7 @@ class ExperimentConfig:
     profile_runs: int = 5
  
     # Пороги failure-rate. Фиксированные значения для отчёта; альтернатива —
-    # процентильный порог по val-распределению (см. percentile_threshold_from_val),
+    # процентильный порог по val-распределению (см. percentile_threshold),
     # чтобы не подсматривать в test при выборе порога.
     rot_thresh_deg: float = 2.0
     trans_thresh_deg: float = 20.0

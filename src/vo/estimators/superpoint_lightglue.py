@@ -2,7 +2,7 @@ import cv2
 import torch
 from lightglue import LightGlue, SuperPoint
 from lightglue.utils import rbd 
-from estimators.base import BaseEstimator
+from vo.estimators.base import BaseEstimator
 
 
 class SuperPointLightGlueEstimator(BaseEstimator):

@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from geometry.metrics import auc_at_k
+from vo.geometry.metrics import auc_at_k
 
 DEFAULT_STAT_METRICS = (
     "R_err_deg", "t_err_deg",

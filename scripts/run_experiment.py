@@ -20,16 +20,16 @@ import numpy as np
 import pandas as pd
 
 from config import ExperimentConfig, GRIDS, FALLBACK_PARAMS
-from src.datasets.alto import AltoDataset
-from src.estimators.sift_essential import SiftEssentialEstimator
-from src.estimators.sift_lk import SiftLkEstimator
-from src.estimators.superpoint_lightglue import SuperPointLightGlueEstimator
-from src.evaluation.pose_eval import PoseEvaluator
-from src.evaluation.failure_analysis import failure_rate_report
-from src.optimization.grid_search import grid_search
-from src.evaluation.statistics import get_stat, get_auc, get_rpe, format_auc, format_rpe
-from src.evaluation.ate import run_ate_analysis, run_windowed_ate_analysis
-from src.profiling.profiler import EstimatorProfiler
+from vo.datasets.alto import AltoDataset
+from vo.estimators.sift_essential import SiftEssentialEstimator
+from vo.estimators.sift_lk import SiftLkEstimator
+from vo.estimators.superpoint_lightglue import SuperPointLightGlueEstimator
+from vo.evaluation.pose_eval import PoseEvaluator
+from vo.evaluation.failure_analysis import failure_rate_report
+from vo.optimization.grid_search import grid_search
+from vo.evaluation.statistics import get_stat, get_auc, get_rpe, format_auc, format_rpe
+from vo.evaluation.ate import run_ate_analysis, run_windowed_ate_analysis
+from vo.profiling.profiler import EstimatorProfiler
 
 log = logging.getLogger("run_experiment")
 
