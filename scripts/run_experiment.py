@@ -57,7 +57,6 @@ def run_val_search(dataset: AltoDataset, cfg: ExperimentConfig) -> tuple[dict, d
 
 
 def build_estimators(best_params: dict, device: str) -> dict:
-    log.info("superpoint_lg will be on %s", device) 
     return {
         "sift_essential": SiftEssentialEstimator(**best_params["sift_essential"]),
         "sift_lk": SiftLkEstimator(**best_params["sift_lk"]),
@@ -161,7 +160,7 @@ def main() -> None:
 
     cfg = ExperimentConfig()
     dataset = load_dataset(cfg)
-
+    log.info("superpoint_lg will be on %s", cfg.device) 
     if args.skip_search:
         log.info("skipping val search, using FALLBACK_PARAMS")
         best_params = FALLBACK_PARAMS

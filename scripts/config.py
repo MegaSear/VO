@@ -51,7 +51,7 @@ class ExperimentConfig:
  
     device: str = "cuda" if torch.cuda.is_available() else "cpu"
  
- 
+
 GRIDS = {
     "sift_essential": {
         "cls": SiftEssentialEstimator,
