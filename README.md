@@ -104,12 +104,16 @@ estimator (ratio-test survival, optical-flow tracking success, LightGlue match
 acceptance) — see inline comments in each estimator for the exact definition
 used in each case.
 
-## Setup
+## Quick start
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\Activate.ps1
+
+git clone https://github.com/MegaSear/VO.git
+cd VO
 pip install -r requirements.txt
+export VO_DATA_HOME=/path/to/alto/data
+export PYTHONPATH=$(pwd)/src
+python scripts/run_experiment.py
 ```
 
 `requirements.txt` pins LightGlue to a specific commit (`lightglue @ git+https://github.com/cvg/LightGlue.git@<hash>`)
